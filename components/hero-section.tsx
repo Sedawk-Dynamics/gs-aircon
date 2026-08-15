@@ -38,7 +38,7 @@ export function HeroSection() {
           priority
           className="object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/70" />
+        <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/95 to-navy/70" />
       </div>
 
       <div className="relative mx-auto grid w-full max-w-7xl gap-8 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:px-8 lg:py-10">
@@ -93,7 +93,7 @@ export function HeroSection() {
           {metrics.map((metric) => (
             <div
               key={metric.label}
-              className="flex items-start gap-4 rounded-lg border border-navy-foreground/15 bg-navy-foreground/[0.06] p-3.5 sm:p-4 backdrop-blur-sm"
+              className="flex items-start gap-4 rounded-lg border border-navy-foreground/15 bg-navy-foreground/6 p-3.5 sm:p-4 backdrop-blur-sm"
             >
               <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-primary/15 text-primary sm:size-11">
                 <metric.icon className="size-5" aria-hidden="true" />
