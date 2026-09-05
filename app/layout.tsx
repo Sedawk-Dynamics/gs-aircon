@@ -10,7 +10,7 @@ const _archivo = Archivo({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'GS Aircon | Chiller Spare Parts & After-Market HVAC Services',
   description:
-    'GS Aircon delivers specialized chiller spare parts, preventive maintenance, overhauls, and emergency breakdown support across Pan-India, Muscat, and Sri Lanka for Carrier, Trane, YORK, Daikin, McQuay, Climaveneta, SKM, and PETRA systems.',
+    'GS Aircon delivers specialized chiller spare parts, preventive maintenance, overhauls, and emergency breakdown support across Pan-India, Muscat, Sri Lanka, and the Middle East for Carrier, Trane, YORK, Daikin, McQuay, SKM, PETRA, and Century systems.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -21,10 +21,6 @@ export const metadata: Metadata = {
       {
         url: '/icon-dark-32x32.png',
         media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
       },
     ],
     apple: '/apple-icon.png',

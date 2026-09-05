@@ -74,8 +74,8 @@ export function ServiceInquirySidebar({ serviceTitle }: { serviceTitle: string }
 
       <div className="flex items-center gap-2 rounded-md border border-border bg-secondary/50 p-3 text-sm">
         <PhoneCall className="size-4 shrink-0 text-primary" aria-hidden="true" />
-        <a href="tel:+919999999999" className="font-medium text-navy hover:text-primary">
-          Emergency support: +91 99999 99999
+        <a href="tel:+919885566835" className="font-medium text-navy hover:text-primary">
+          Emergency support: +91 98855 66835
         </a>
       </div>
     </div>

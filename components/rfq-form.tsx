@@ -68,8 +68,8 @@ export function RfqForm() {
             </p>
             <div className="mt-4 flex flex-col gap-3 text-sm text-muted-foreground">
               <p>Prefer to talk directly? Call our emergency support line, available around the clock.</p>
-              <a href="tel:+919999999999" className="font-semibold text-navy hover:text-primary">
-                +91 99999 99999
+              <a href="tel:+919885566835" className="font-semibold text-navy hover:text-primary">
+                +91 98855 66835
               </a>
             </div>
           </motion.div>

@@ -37,7 +37,7 @@ export const services: Service[] = [
       "Batch traceability with material test certificates on request",
       "Packaging rated for cross-border freight (Muscat / Sri Lanka lanes)",
     ],
-    supportedPlatforms: ["Carrier", "Trane", "YORK", "Daikin", "McQuay", "Climaveneta", "SKM", "PETRA"],
+    supportedPlatforms: ["Carrier", "Trane", "YORK", "Daikin", "McQuay", "SKM", "PETRA", "Century"],
   },
   {
     slug: "preventive-maintenance-amc",
@@ -61,7 +61,7 @@ export const services: Service[] = [
       "Electrical connection torque and insulation resistance checks",
       "Digital service log handover to plant maintenance teams",
     ],
-    supportedPlatforms: ["Carrier", "Trane", "YORK", "Daikin", "McQuay", "Climaveneta", "SKM", "PETRA"],
+    supportedPlatforms: ["Carrier", "Trane", "YORK", "Daikin", "McQuay", "SKM", "PETRA", "Century"],
   },
   {
     slug: "chiller-overhaul-repairs",
@@ -85,7 +85,7 @@ export const services: Service[] = [
       "Full refrigerant recovery, evacuation, and recharge documentation",
       "Commissioning report with before/after performance data",
     ],
-    supportedPlatforms: ["Carrier", "Trane", "YORK", "Daikin", "McQuay", "Climaveneta", "SKM", "PETRA"],
+    supportedPlatforms: ["Carrier", "Trane", "YORK", "Daikin", "McQuay", "SKM", "PETRA", "Century"],
   },
   {
     slug: "emergency-breakdown-troubleshooting",
@@ -109,7 +109,7 @@ export const services: Service[] = [
       "Control-loop and safety-chain fault tracing",
       "Post-repair incident report with downtime and root-cause summary",
     ],
-    supportedPlatforms: ["Carrier", "Trane", "YORK", "Daikin", "McQuay", "Climaveneta", "SKM", "PETRA"],
+    supportedPlatforms: ["Carrier", "Trane", "YORK", "Daikin", "McQuay", "SKM", "PETRA", "Century"],
   },
 ]
 
@@ -117,4 +117,4 @@ export function getServiceBySlug(slug: string) {
   return services.find((service) => service.slug === slug)
 }
 
-export const brands = ["Carrier", "Trane", "YORK", "Daikin", "McQuay", "Climaveneta", "SKM", "PETRA"]
+export { brandsSupported as brands } from "./company-data"

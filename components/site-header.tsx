@@ -17,9 +17,11 @@ import {
 const navLinks = [
   { href: "/#home", label: "Home" },
   { href: "/#about", label: "About Us" },
+  { href: "/#mission", label: "Mission & Values" },
   { href: "/#spare-parts", label: "Spare Parts" },
   { href: "/#services", label: "Services" },
   { href: "/#brands", label: "Brands Supported" },
+  { href: "/#projects", label: "Projects" },
   { href: "/#contact", label: "Contact Us" },
 ]
 
@@ -31,22 +33,22 @@ export function SiteHeader() {
       <div className="bg-navy text-navy-foreground">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-1.5 text-xs sm:px-6 lg:px-8">
           <p className="truncate font-medium tracking-wide text-navy-foreground/80">
-            Serving Pan-India, Muscat &amp; Sri Lanka
+            Hyderabad · Muscat · Sri Lanka · Middle East
           </p>
           <div className="hidden items-center gap-4 sm:flex">
             <a
-              href="tel:+919999999999"
+              href="tel:+919885566835"
               className="flex items-center gap-1.5 text-navy-foreground/90 transition-colors hover:text-primary"
             >
               <Phone className="size-3.5" aria-hidden="true" />
               Emergency Support
             </a>
             <a
-              href="mailto:support@gsaircon.com"
+              href="mailto:info@gsaircon.com"
               className="flex items-center gap-1.5 text-navy-foreground/90 transition-colors hover:text-primary"
             >
               <Mail className="size-3.5" aria-hidden="true" />
-              support@gsaircon.com
+              info@gsaircon.com
             </a>
           </div>
         </div>

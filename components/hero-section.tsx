@@ -3,26 +3,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, PhoneCall, Globe, Gauge, ShieldCheck } from "lucide-react"
+import { ArrowRight, PhoneCall } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-const metrics = [
-  {
-    icon: Globe,
-    label: "Pan-India & International Reach",
-    detail: "Active hubs across India, Muscat, and Sri Lanka",
-  },
-  {
-    icon: Gauge,
-    label: "Multi-Brand Chiller Expertise",
-    detail: "Carrier, Trane, YORK, Daikin, and more",
-  },
-  {
-    icon: ShieldCheck,
-    label: "Rapid Breakdown Support",
-    detail: "24/7 diagnostic response for critical plants",
-  },
-]
+import { company, brandsSupported } from "@/lib/company-data"
 
 export function HeroSection() {
   return (
@@ -41,27 +24,40 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/95 to-navy/70" />
       </div>
 
-      <div className="relative mx-auto grid w-full max-w-7xl gap-8 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12 lg:px-8 lg:py-10">
+      <p className="absolute right-4 top-6 hidden text-right text-[0.65rem] uppercase tracking-[0.16em] text-navy-foreground/50 sm:right-6 lg:right-8 lg:block">
+        {company.regionsLine}
+      </p>
+
+      <div className="relative mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col gap-5 sm:gap-6"
+          className="flex max-w-3xl flex-col gap-5 sm:gap-6"
         >
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-navy-foreground/20 bg-navy-foreground/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-primary">
-            Specialized Chiller Spare Parts &amp; After-Market Services
-          </span>
+          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">{company.tagline}</span>
 
           <h1 className="font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl xl:text-6xl">
-            Extending Operational Life &amp; Reliability for Industrial Chiller Systems
+            Keeping critical cooling systems running —{" "}
+            <span className="font-normal text-primary">every brand, every time.</span>
           </h1>
 
-          <p className="max-w-xl text-pretty text-sm leading-relaxed text-navy-foreground/75 sm:text-base lg:text-lg">
-            Deep technical expertise across major global brands (Carrier, Trane, YORK, Daikin). OEM-standard
-            maintenance, genuine spares, and rapid troubleshooting across India, Middle East, and South Asia.
+          <p className="max-w-2xl text-pretty text-sm leading-relaxed text-navy-foreground/75 sm:text-base lg:text-lg">
+            {company.intro}
           </p>
 
-          <div className="flex flex-wrap gap-3 pt-1 sm:pt-2">
+          <div className="flex flex-wrap gap-2.5 pt-2">
+            {brandsSupported.slice(0, 7).map((brand) => (
+              <span
+                key={brand}
+                className="rounded-xs border border-navy-foreground/25 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-navy-foreground/85"
+              >
+                {brand}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-3">
             <Button
               render={<Link href="/#services" />}
               nativeButton={false}
@@ -83,29 +79,8 @@ export function HeroSection() {
             </Button>
           </div>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-col gap-3.5 sm:gap-4"
-        >
-          {metrics.map((metric) => (
-            <div
-              key={metric.label}
-              className="flex items-start gap-4 rounded-lg border border-navy-foreground/15 bg-navy-foreground/6 p-3.5 sm:p-4 backdrop-blur-sm"
-            >
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-primary/15 text-primary sm:size-11">
-                <metric.icon className="size-5" aria-hidden="true" />
-              </span>
-              <div>
-                <p className="font-heading text-sm font-semibold text-navy-foreground">{metric.label}</p>
-                <p className="mt-0.5 text-xs text-navy-foreground/65 sm:text-sm">{metric.detail}</p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
       </div>
+
     </section>
   )
 }
