@@ -276,3 +276,27 @@ export const notableEngagements = [
 /** Page 8 — founder's closing statement. */
 export const founderQuote =
   "GS Aircon was built on a simple belief: clients deserve honest, expert chiller support regardless of which brand they run. From routine service visits to complex, large-capacity overhauls at malls, hospitals and refineries, our team carries technical integrity into every job. Thank you for trusting GS Aircon with your chiller systems."
+
+/** Site gallery — team & plant-room photography. */
+export const gallery: { src: string; caption: string; alt: string }[] = [
+  {
+    src: "/images/gallery/york-centrifugal-chiller.jpeg",
+    caption: "YORK YK centrifugal chiller — plant room",
+    alt: "GS Aircon engineer beside a YORK YK centrifugal chiller with insulated chilled-water headers overhead",
+  },
+  {
+    src: "/images/gallery/chiller-plant-inspection.jpeg",
+    caption: "Chiller plant inspection round",
+    alt: "GS Aircon engineer recording readings during an inspection round in a water-cooled chiller plant room",
+  },
+  {
+    src: "/images/gallery/screw-chiller-service-log.jpeg",
+    caption: "Screw chiller service log reading",
+    alt: "Engineer logging operating parameters at a water-cooled screw chiller control panel",
+  },
+  {
+    src: "/images/gallery/gs-aircon-team.jpeg",
+    caption: "The GS Aircon service team",
+    alt: "The GS Aircon service team outside the company office beneath the GS Aircon signboard",
+  },
+]

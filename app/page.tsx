@@ -8,6 +8,7 @@ import { BrandsSection } from "@/components/brands-section"
 import { ServiceScopeSection } from "@/components/service-scope-section"
 import { ServicesSection } from "@/components/services-section"
 import { ProjectsSection } from "@/components/projects-section"
+import { GallerySection } from "@/components/gallery-section"
 import { ReachSection } from "@/components/reach-section"
 import { RfqForm } from "@/components/rfq-form"
 import { SiteFooter } from "@/components/site-footer"
@@ -31,6 +32,7 @@ export default function Page() {
         <ServicesSection />
         {/* Brochure p.5-7 */}
         <ProjectsSection />
+        <GallerySection />
         {/* Brochure p.8 */}
         <ReachSection />
         <RfqForm />

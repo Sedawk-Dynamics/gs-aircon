@@ -3,9 +3,14 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, PhoneCall } from "lucide-react"
+import { ArrowRight, FileText, PhoneCall } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { company, brandsSupported } from "@/lib/company-data"
+
+const heroDocuments = [
+  { label: "FAWAZ", href: "/documents/fawaz.pdf" },
+  { label: "My Carrier Awards", href: "/documents/my-carrier-awards.pdf" },
+]
 
 export function HeroSection() {
   return (
@@ -77,6 +82,21 @@ export function HeroSection() {
               <PhoneCall data-icon="inline-start" />
               Talk to an Engineer
             </Button>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2">
+            {heroDocuments.map((doc) => (
+              <a
+                key={doc.href}
+                href={doc.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-navy-foreground/80 underline-offset-4 transition-colors hover:text-primary hover:underline"
+              >
+                <FileText data-icon="inline-start" />
+                {doc.label}
+              </a>
+            ))}
           </div>
         </motion.div>
       </div>
