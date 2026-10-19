@@ -24,9 +24,10 @@ export function HeroSection() {
           alt=""
           fill
           priority
-          className="object-cover opacity-25"
+          sizes="100vw"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/95 to-navy/70" />
+        <div className="absolute inset-0 bg-linear-to-r from-navy/85 via-navy/60 to-navy/20" />
       </div>
 
       <p className="absolute right-4 top-6 hidden text-right text-[0.65rem] uppercase tracking-[0.16em] text-navy-foreground/50 sm:right-6 lg:right-8 lg:block">

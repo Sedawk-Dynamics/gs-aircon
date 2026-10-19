@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import { CheckCircle2, ClipboardCheck, Layers } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
@@ -15,6 +16,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { getServiceBySlug, services } from "@/lib/services-data"
+import { partsSystems } from "@/lib/company-data"
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }))
@@ -94,6 +96,28 @@ export default async function ServicePage({
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
               <div className="flex flex-col gap-12">
+                <div className="relative aspect-video overflow-hidden rounded-lg border border-border bg-secondary">
+                  <Image
+                    src={`/images/services/${service.slug}.png`}
+                    alt={`${service.title} illustration`}
+                    fill
+                    preload
+                    sizes="(min-width: 1024px) 60vw, 100vw"
+                    className="object-contain"
+                  />
+                </div>
+                {service.slug === "chiller-spare-parts" && (
+                  <section>
+                    <h2 className="font-heading text-xl font-semibold text-navy">Browse Spare Parts</h2>
+                    <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                      {partsSystems.map((part) => (
+                        <Link key={part.slug} href={`/spare-parts/${part.slug}`} className="rounded-md border border-border p-4 text-sm font-medium text-navy hover:border-primary hover:text-primary">
+                          {part.title} &rarr;
+                        </Link>
+                      ))}
+                    </div>
+                  </section>
+                )}
                 <div>
                   <div className="flex items-center gap-2.5">
                     <ClipboardCheck className="size-5 text-primary" aria-hidden="true" />

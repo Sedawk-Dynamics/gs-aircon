@@ -137,15 +137,15 @@ export const values = [
 ]
 
 /** Page 3 — "Parts & Systems We Support". */
-export const partsSystems: { icon: LucideIcon; title: string; detail: string }[] = [
-  { icon: Gauge, title: "Compressors", detail: "Screw & Centrifugal" },
-  { icon: Zap, title: "Motors & Drives", detail: "Incl. VFDs" },
-  { icon: CircuitBoard, title: "Control Systems", detail: "Boards & Panels" },
-  { icon: Thermometer, title: "Sensors", detail: "Temp & Pressure" },
-  { icon: Wrench, title: "Valves", detail: "Expansion & Solenoid" },
-  { icon: Droplets, title: "Oil & Filtration", detail: "Filters & Refrig. Oil" },
-  { icon: Fan, title: "Heat Exchangers", detail: "Coils & Condensers" },
-  { icon: MonitorCog, title: "BMS Integration", detail: "Monitoring & Controls" },
+export const partsSystems: { slug: string; icon: LucideIcon; title: string; detail: string }[] = [
+  { icon: Gauge, slug: "compressors", title: "Compressors", detail: "Screw & Centrifugal" },
+  { icon: Zap, slug: "motors-drives", title: "Motors & Drives", detail: "Incl. VFDs" },
+  { icon: CircuitBoard, slug: "control-systems", title: "Control Systems", detail: "Boards & Panels" },
+  { icon: Thermometer, slug: "sensors", title: "Sensors", detail: "Temp & Pressure" },
+  { icon: Wrench, slug: "valves", title: "Valves", detail: "Expansion & Solenoid" },
+  { icon: Droplets, slug: "oil-filtration", title: "Oil & Filtration", detail: "Filters & Refrig. Oil" },
+  { icon: Fan, slug: "heat-exchangers", title: "Heat Exchangers", detail: "Coils & Condensers" },
+  { icon: MonitorCog, slug: "bms-integration", title: "BMS Integration", detail: "Monitoring & Controls" },
 ]
 
 /** Page 4 — service scope table. */
