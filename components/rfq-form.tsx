@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/select"
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { brands } from "@/lib/services-data"
+import { submitInquiry } from "@/lib/submit-inquiry"
 
 const urgencyLevels = [
   { value: "planned", label: "Planned — within 30 days" },
@@ -29,20 +30,31 @@ export function RfqForm() {
   const [brand, setBrand] = useState<string>("")
   const [urgency, setUrgency] = useState<string>("")
   const [submitting, setSubmitting] = useState(false)
+  const [result, setResult] = useState("")
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (submitting) return
+    const form = event.currentTarget
     setSubmitting(true)
+    setResult("")
 
-    setTimeout(() => {
-      setSubmitting(false)
+    try {
+      await submitInquiry(form, "GS Aircon - New Quote Request")
+      setResult("Thank you! Your request has been sent. Our engineering desk will contact you shortly.")
       toast.success("Request received", {
         description: "Our engineering desk will get back to you shortly with a quote.",
       })
-      event.currentTarget.reset()
+      form.reset()
       setBrand("")
       setUrgency("")
-    }, 900)
+    } catch {
+      const message = "Unable to send your request. Please try again or call +91 98855 66835."
+      setResult(message)
+      toast.error(message)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -81,18 +93,24 @@ export function RfqForm() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="rounded-lg border border-border bg-card p-6 sm:p-8"
           >
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} aria-busy={submitting}>
+              <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} aria-hidden="true" />
               <FieldGroup>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <Field>
                     <FieldLabel htmlFor="client-name">Client Name</FieldLabel>
-                    <Input id="client-name" name="clientName" placeholder="Full name" required />
+                    <Input id="client-name" name="name" placeholder="Full name" autoComplete="name" required />
                   </Field>
                   <Field>
                     <FieldLabel htmlFor="plant-location">Company / Plant Location</FieldLabel>
                     <Input id="plant-location" name="plantLocation" placeholder="City, country" required />
                   </Field>
                 </div>
+
+                <Field>
+                  <FieldLabel htmlFor="client-email">Email Address</FieldLabel>
+                  <Input id="client-email" type="email" name="email" placeholder="you@company.com" autoComplete="email" required />
+                </Field>
 
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <Field>
@@ -137,7 +155,7 @@ export function RfqForm() {
                   <FieldLabel htmlFor="requirement">Part / Service Requirement</FieldLabel>
                   <Textarea
                     id="requirement"
-                    name="requirement"
+                    name="message"
                     placeholder="Describe the part number, symptom, or service you need"
                     rows={4}
                     required
@@ -157,6 +175,7 @@ export function RfqForm() {
                     </>
                   )}
                 </Button>
+                <p role="status" aria-live="polite" className="text-sm text-muted-foreground">{result}</p>
               </FieldGroup>
             </form>
           </motion.div>

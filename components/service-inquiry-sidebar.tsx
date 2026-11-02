@@ -7,21 +7,33 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
+import { submitInquiry } from "@/lib/submit-inquiry"
 
 export function ServiceInquirySidebar({ serviceTitle }: { serviceTitle: string }) {
   const [submitting, setSubmitting] = useState(false)
+  const [result, setResult] = useState("")
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (submitting) return
+    const form = event.currentTarget
     setSubmitting(true)
+    setResult("")
 
-    setTimeout(() => {
-      setSubmitting(false)
+    try {
+      await submitInquiry(form, `GS Aircon - ${serviceTitle} Inquiry`)
+      setResult("Thank you! Your request has been sent. Our engineering desk will contact you shortly.")
       toast.success("Request received", {
         description: `Our engineering desk will follow up on your ${serviceTitle} request shortly.`,
       })
-      event.currentTarget.reset()
-    }, 900)
+      form.reset()
+    } catch {
+      const message = "Unable to send your request. Please try again or call +91 98855 66835."
+      setResult(message)
+      toast.error(message)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -36,11 +48,17 @@ export function ServiceInquirySidebar({ serviceTitle }: { serviceTitle: string }
         </p>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} aria-busy={submitting}>
+        <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} aria-hidden="true" />
+        <input type="hidden" name="service" value={serviceTitle} />
         <FieldGroup>
           <Field>
             <FieldLabel htmlFor="sidebar-name">Client Name</FieldLabel>
-            <Input id="sidebar-name" name="clientName" placeholder="Full name" required />
+            <Input id="sidebar-name" name="name" placeholder="Full name" autoComplete="name" required />
+          </Field>
+          <Field>
+            <FieldLabel htmlFor="sidebar-email">Email Address</FieldLabel>
+            <Input id="sidebar-email" type="email" name="email" placeholder="you@company.com" autoComplete="email" required />
           </Field>
           <Field>
             <FieldLabel htmlFor="sidebar-location">Company / Plant Location</FieldLabel>
@@ -50,7 +68,7 @@ export function ServiceInquirySidebar({ serviceTitle }: { serviceTitle: string }
             <FieldLabel htmlFor="sidebar-requirement">Requirement Details</FieldLabel>
             <Textarea
               id="sidebar-requirement"
-              name="requirement"
+              name="message"
               placeholder="Chiller brand, model, and what you need"
               rows={3}
               required
@@ -69,6 +87,7 @@ export function ServiceInquirySidebar({ serviceTitle }: { serviceTitle: string }
               </>
             )}
           </Button>
+          <p role="status" aria-live="polite" className="text-sm text-muted-foreground">{result}</p>
         </FieldGroup>
       </form>
 
