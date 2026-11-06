@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Archivo, Inter } from 'next/font/google'
 import { Toaster } from '@/components/ui/sonner'
+import { WhatsAppButton } from '@/components/whatsapp-button'
 import './globals.css'
 
 const _inter = Inter({ subsets: ['latin'] })
@@ -41,7 +42,8 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className="antialiased font-sans">
         {children}
-        <Toaster position="bottom-right" />
+        <WhatsAppButton />
+        <Toaster position="bottom-right" offset={88} mobileOffset={88} />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

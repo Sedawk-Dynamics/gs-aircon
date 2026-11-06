@@ -112,6 +112,11 @@ export function RfqForm() {
                   <Input id="client-email" type="email" name="email" placeholder="you@company.com" autoComplete="email" required />
                 </Field>
 
+                <Field>
+                  <FieldLabel htmlFor="client-phone">Phone Number</FieldLabel>
+                  <Input id="client-phone" type="tel" name="phone" placeholder="Phone number with country code" autoComplete="tel" required />
+                </Field>
+
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <Field>
                     <FieldLabel htmlFor="chiller-brand">Chiller Brand</FieldLabel>

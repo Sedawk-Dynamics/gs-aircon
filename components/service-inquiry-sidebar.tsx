@@ -61,6 +61,10 @@ export function ServiceInquirySidebar({ serviceTitle }: { serviceTitle: string }
             <Input id="sidebar-email" type="email" name="email" placeholder="you@company.com" autoComplete="email" required />
           </Field>
           <Field>
+            <FieldLabel htmlFor="sidebar-phone">Phone Number</FieldLabel>
+            <Input id="sidebar-phone" type="tel" name="phone" placeholder="Phone number with country code" autoComplete="tel" required />
+          </Field>
+          <Field>
             <FieldLabel htmlFor="sidebar-location">Company / Plant Location</FieldLabel>
             <Input id="sidebar-location" name="plantLocation" placeholder="City, country" required />
           </Field>
