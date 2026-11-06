@@ -1,10 +1,10 @@
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/919849411646"
+      href="https://wa.me/919885566835"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with GS Aircon on WhatsApp at +91 98494 11646 (opens in a new tab)"
+      aria-label="Chat with GS Aircon on WhatsApp at +91 98855 66835 (opens in a new tab)"
       title="Chat with us on WhatsApp"
       className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] right-4 z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-colors hover:bg-[#128C7E] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#128C7E] sm:right-6"
     >
