@@ -25,6 +25,12 @@ export const company = {
   intro:
     "Genuine & compatible spare parts, preventive maintenance, breakdown repair and large-capacity overhauls for commercial and industrial chiller systems — delivered with OEM-trained technical expertise across the Middle East and Pan-India.",
   website: "www.gsaircon.com",
+  socialLinks: [
+    { name: "Instagram", url: "https://www.instagram.com/gsaircon_/" },
+    { name: "X", url: "https://x.com/gsaircorn" },
+    { name: "Facebook", url: "https://www.facebook.com/gsaircorn/" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/company/gs-aircon/" },
+  ],
   regionsLine: "Hyderabad · Muscat · Sri Lanka · Pan-India · Middle East",
   phones: ["+91 98855 66835", "+91 98494 11646"],
   emails: ["info@gsaircon.com", "support@gsaircon.com"],
